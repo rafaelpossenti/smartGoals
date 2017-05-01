@@ -16,7 +16,7 @@ public class Application {
 	
 	@RequestMapping(value="/")
 	public String Demo() {
-		return "Template!";
+		return "index";
 	}
 
 }
