@@ -27,7 +27,7 @@ public class dashboardController {
 	@RequestMapping("listaobjetivos")
 	public String listaObjetivos(Model model){
 		 Iterable<Staff> staffs = repository.findAll();
-		 model.addAttribute("convidados", staffs);
+		 model.addAttribute("staffs", staffs);
 		
 		return "listaObjetivos";
 	}
