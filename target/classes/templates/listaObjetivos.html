@@ -10,18 +10,33 @@
     <table class="table table-hover">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Nome</th>
-            <th>Cargo</th>
             <th>Descrição</th>
         </tr>
         </thead>
-        <tr th:each="staff : ${staffs}">
-            <td> <span th:text="${staff.name}"></span> </td>
-            <td> <span th:text="${staff.occupation}"></span> </td>
-            <td> <span th:text="${staff.description}"></span> </td>
+        <tr th:each="goal : ${goals}">
+            <td> <span th:text="${goal.id}"></span> </td>
+            <td> <span th:text="${goal.name}"></span> </td>
+            <td> <span th:text="${goal.description}"></span> </td>
         </tr>
     </table>
 </div>
+<hr/>
+<form action="save" method="post">
+    
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Nome" />
+    </div>
+    
+    <div class="form-group">
+        <label for="telefone">Descrição</label>
+        <input type="text" class="form-control" id="description" name="description" placeholder="Descrição" />
+    </div>
+    <button type="submit" class="btn btn-success">Salvar</button>
+</form>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
