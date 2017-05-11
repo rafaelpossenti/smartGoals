@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import br.com.possenti.model.Goal;
 import br.com.possenti.repository.GoalRepository;
+import br.com.possenti.service.GoalService;
 
 
 @Controller
@@ -19,8 +21,7 @@ public class GoalController {
 
 
 	@Autowired
-	private GoalRepository repository;
-	
+    private GoalService service;
 	
 	@RequestMapping("/")
 	public String index(){
@@ -30,7 +31,7 @@ public class GoalController {
 
 	@RequestMapping("listaobjetivos")
 	public String listaObjetivos(Model model){
-		 Iterable<Goal> goals = repository.findAll();
+		 Iterable<Goal> goals = service.getAll();
 		 model.addAttribute("goals", goals);
 		
 		return "listaObjetivos";
@@ -41,12 +42,26 @@ public class GoalController {
             			@RequestParam("description") String description,
             			Model model){
 		Goal newGoal = new Goal(name, description);
-	    repository.save(newGoal);
+	    service.save(newGoal);
 	    
-	    Iterable<Goal> goals = repository.findAll();
+	    Iterable<Goal> goals = service.getAll();
 	    model.addAttribute("goals", goals);
 		
-		return "listaobjetivos";
+		return "redirect:/listaobjetivos";
 	}
 	
+	
+	@RequestMapping(value = "delete/{id}", method = RequestMethod.POST)
+    public String delete(@RequestParam("id")Integer id,
+    				   Model model) {
+
+        Goal goal = service.getId(id);
+
+        service.delete(goal);
+        
+        Iterable<Goal> goals = service.getAll();
+	    model.addAttribute("goals", goals);
+		
+		return "redirect:/listaobjetivos";
+	}
 }
