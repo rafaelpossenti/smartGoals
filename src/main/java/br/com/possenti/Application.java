@@ -14,7 +14,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 
 	}
-
+/*
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -24,5 +24,5 @@ public class Application {
 		dataSource.setPassword("root");
 		return dataSource;
 	}
-
+*/
 }
