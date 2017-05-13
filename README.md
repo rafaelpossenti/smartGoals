@@ -7,7 +7,7 @@ a web site build using Spring Boot to control your goals.
 + Java
 + Spring Boot
 + JPA
-+ thymeleaf
++ thymeleaf/Bootstrap
 
 ## Directory Structure 
 
