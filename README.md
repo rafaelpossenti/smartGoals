@@ -1,7 +1,7 @@
 # smartGoals
 
 ## about
-a web site build using Spring Boot to control your goals.
+a web site build using SpringBoot to control your goals.
 
 ## Technical Specifications
 + Java
